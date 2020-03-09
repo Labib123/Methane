@@ -10,8 +10,11 @@
                 <div class="panel-body">
                     <!-- @component('components.who')
                     @endcomponent -->
+                <a href="material">
+                <button>Show Materials</button>
+                
+                </a>
 
-                    <button>Show Materials</button>
                     <button>View Submission History</button>
 
                 </div>

@@ -54,9 +54,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|max:255',
+            'username' => 'required|max:255|min:3',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'fullname' => 'required',
+            
         ]);
     }
 
@@ -74,9 +76,11 @@ class RegisterController extends Controller
             'totalpoints' => 0,
             'ecolevel' => 'null',
             'address' =>  isset($data['address'])?$data['address']:'null' ,
-            'schedule' => isset($data['schedule'])?$data['address']:'null',
+            'schedule' => isset($data['schedule'])?$data['schedule']:'null',
             'usertype' => isset($data['address'])?'collector':'recycler',
+            'materialType' => isset($data['materialType'])?$data['materialType']:'null',
             'email' => $data['email'],
+            'materialType' =>   isset($data['materialType'])?$data['materialType']:'null', 
             'password' => bcrypt($data['password']),
         ]);
     

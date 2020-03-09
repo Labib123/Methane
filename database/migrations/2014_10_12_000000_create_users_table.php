@@ -21,7 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('ecolevel')->nullable($value = true)	;
             $table->string('address')->default('null')	;
             $table->string('schedule')->nullable($value = true)	;
-            $table->string('usertype');
+            $table->string('usertype')->nullable($value = true);
+            $table->string('materialType');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

@@ -38,6 +38,17 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => ['logout', 'userLogout']]);
     }
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'username' => 'required|max:255',
+            'password' => 'required|min:6',
+            
+        ]);
+    }
+ 
+
+
     public function userLogout()
     {
         Auth::guard('web')->logout();
