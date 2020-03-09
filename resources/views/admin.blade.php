@@ -12,10 +12,14 @@
                     @endcomponent -->
                 <a href="material">
                 <button>Show Materials</button>
-                
+
                 </a>
 
-                    <button>View Submission History</button>
+                <a href="adminSubmission">
+                  <button>View Submission History</button>
+
+                </a>
+
 
                 </div>
             </div>
