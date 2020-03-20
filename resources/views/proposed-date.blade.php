@@ -1,21 +1,39 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+    'class' => 'makeappointment',
+    'elementActive' => 'makeappointment'
+])
+
+
+
+
 @section('content')
+
+<div class="content">
 <div class="container">
-<div class="row mt-5">
-    <div class="col-sm-8 offset-sm-2">
-      <form action="{{route('submission.store')}}" method = "post"  value="{{ csrf_token() }}">
-      {!! csrf_field() !!}
-
-        <div class="form-group">
-          <label for="firstname">Proposed Date:</label>
-
-          <input type="date" name = "proposedDate" id = "proposedDate" class="form-control" required>
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
         </div>
-      
-
-        <button type = "submit" class = "btn btn-success">Submit</button>
-      </form>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
     </div>
-  </div>
-  </div>
+</div>
+
+<script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/plugins/moment.min.js"></script>
+
+
 @endsection

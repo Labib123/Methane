@@ -2,6 +2,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Material;
+use App\Schedule;
+use App\CollectorMaterials;
+
 use DB  ;
 
 
@@ -12,7 +15,6 @@ class makeAppointmentController extends Controller
 
     public function __construct()
     {
-        $this->middleware('type:recycler');
     }
 
     /**
@@ -30,9 +32,11 @@ class makeAppointmentController extends Controller
     public function selectCollector(Request $request)
     {
         //Show all Materials from the database and return to view
-        $collector = User::all()->where("materialType" , $request->get('id')) ;
+        $material = CollectorMaterials::where("name" , $request->name)->get() ;
+        $collectors = User::all() ; 
+        $schedule = Schedule::all(); 
             //
-        return view('show-collectors',['collectors'=>$collector]);
+        return view('show-collectors',['material'=>$material, 'collectors'=>$collectors,'schedule'=>$schedule]);
 
     }
     public function proposedDate()

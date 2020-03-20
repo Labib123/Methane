@@ -8,7 +8,6 @@ class MaterialController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:admin');
     }
 
     /**
@@ -42,8 +41,8 @@ class MaterialController extends Controller
     {
 
         $this->validate($request,[
-            'name' => 'required|max:255',
-            'description' => 'required',
+            'name' => 'required|max:255|min:4',
+            'description' => 'required|min:10',
             'pointsPerKg' => 'required|integer'
 
         ]);
@@ -84,8 +83,8 @@ class MaterialController extends Controller
         //Retrieve the employee and update
 
         $this->validate($request,[
-            'name' => 'required|max:255',
-            'description' => 'required',
+            'name' => 'required|max:255|min:4',
+            'description' => 'required|min:10',
             'pointsPerKg' => 'required|integer'
 
         ]);
@@ -107,9 +106,8 @@ class MaterialController extends Controller
     public function destroy($id)
     {
         //Retrieve the employee
-        $material = Material::find($id);
+        $material = Material::destroy($id);
         //delete
-        $material->delete();
-        return redirect()->route('material.index');
+        return redirect()->route('material.index')->with('success', 'Material deleted!');
     }
 }

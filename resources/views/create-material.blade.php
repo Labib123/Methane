@@ -1,17 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+    'class' => 'showmaterial',
+    'elementActive' => 'showmaterial'
+])
+
 @section('content')
 
-@if ($errors->any())
+
+            <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                    @if ($errors->any())
             <ul>
               @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
               @endforeach
             </ul>
             @endif {{ csrf_field() }}
-
-<div class="container">
-<div class="row mt-5">
-    <div class="col-sm-8 offset-sm-2">
+                        <h4 class="card-title"> Add Material</h4>
       <form action="{{route('material.store')}}" method = "post"  value="{{ csrf_token() }}">
       {!! csrf_field() !!}
 

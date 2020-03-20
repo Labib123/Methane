@@ -74,18 +74,17 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'fullname' => $data['fullname'],
             'totalpoints' => 0,
-            'ecolevel' => 'null',
+            'ecolevel' => 'Newbie',
             'address' =>  isset($data['address'])?$data['address']:'null' ,
             'schedule' => isset($data['schedule'])?$data['schedule']:'null',
-            'usertype' => isset($data['address'])?'collector':'recycler',
+            'usertype' => $data['usertype'],
             'materialType' => isset($data['materialType'])?$data['materialType']:'null',
             'email' => $data['email'],
-            'materialType' =>   isset($data['materialType'])?$data['materialType']:'null', 
             'password' => bcrypt($data['password']),
-        ]);
-    
-        return redirect('home')->with('message', 'User registered!');;
+            'isAdmin' =>  !isset($data['address'])?false:true ,
 
+        ]);
+        return redirect('home')->with('message', 'User registered!');;
     }
     
     public function register(Request $request)
@@ -102,4 +101,3 @@ class RegisterController extends Controller
     
 }
  
-

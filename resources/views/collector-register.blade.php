@@ -51,8 +51,7 @@
             <div
               class="form-group{{ $errors->has('fullname') ? ' has-error' : '' }}"
             >
-              <label for="fullname" class="col-md-4 control-label"
-                >fullname</label
+              <label for="fullname">fullname</label
               >
 
               <div class="col-md-6">
@@ -83,7 +82,8 @@
 
               <div class="col-md-6">
                 <input
-                  id="address"
+                                    id="address"
+
                   type="address"
                   class="form-control"
                   name="address"

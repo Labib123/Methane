@@ -1,38 +1,40 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+    'class' => '',
+    'elementActive' => 'recyclerSubmission'
+])
 
 @section('content')
-<div class="container">
-<div class="row">
-<h1 align="center" >View Submission</h1>
-<h5 align="center"> <?php echo auth()->user()->username ?></h5>
-<!-- <a href="{{route('submission.create')}}" class = "btn btn-info">Add Submission</a> -->
-</br>
-</br>
-</br>
-
-    <div class="col-sm-12">
-      <table class="table">
-        <tr >
-          <th id="id">ID</th>
-          <th>proposedDate</th>
-          <th>actualDate</th>
-          <th>weightInKg </th>
-          <th>pointsAwarded </th>
-          <th>status </th>
-        </tr>
-        @foreach($submission as $s)
-          <tr>
-            <td>{{ $s->id }}</td>
-            <td>{{ $s->proposedDate }}</td>
-            <td>{{ $s->actualDate }}</td>
-            <td>{{ $s->weightInKg }}</td>
-            <td>{{ $s->pointsAwarded }}</td>
-            <td>{{ $s->status }}</td>
-
-          </tr>
-        @endforeach
-      </table>
-    </div>
-  </div>
-  </div>
+    <div class="content">
+<<div class="row">
+	                    <div class="col-md-12">
+	                        <div class="card">
+	                            <div class="card-content">
+	                                
+	                                <div class="bootstrap-table"><div class="fixed-table-toolbar"><div class="bars pull-left"><div class="toolbar">
+	                                    <!--Here you can write extra buttons/actions for the toolbar-->
+	                                </div></div><div class="columns columns-right pull-right"><button class="btn btn-default" type="button" name="refresh" title="Refresh"><i class="glyphicon fa fa-refresh"></i></button><button class="btn btn-default" type="button" name="toggle" title="Toggle"><i class="glyphicon fa fa-th-list"></i></button><div class="keep-open btn-group" title="Columns"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon fa fa-columns"></i> <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><label><input type="checkbox" data-field="id" value="1" checked="checked"> ID</label></li><li><label><input type="checkbox" data-field="name" value="2" checked="checked"> Name</label></li><li><label><input type="checkbox" data-field="salary" value="3" checked="checked"> Salary</label></li><li><label><input type="checkbox" data-field="country" value="4" checked="checked"> Country</label></li><li><label><input type="checkbox" data-field="city" value="5" checked="checked"> City</label></li><li><label><input type="checkbox" data-field="actions" value="6" checked="checked"> Actions</label></li></ul></div></div><div class="pull-left search"><input class="form-control" type="text" placeholder="Search"></div></div><div class="fixed-table-container" style="padding-bottom: 0px;"><div class="fixed-table-header" style="display: none;"><table></table></div><div class="fixed-table-body"><div class="fixed-table-loading" style="top: 41px;">Loading, please wait...</div><table id="bootstrap-table" class="table table-hover">
+	                                    <thead><tr><th class="bs-checkbox " style="width: 36px; " data-field="state"><div class="th-inner "><input name="btSelectAll" type="checkbox"></div><div class="fht-cell"></div></th><th class="text-center" style="" data-field="id"><div class="th-inner ">ID</div><div class="fht-cell"></div></th><th style="" data-field="name"><div class="th-inner sortable both">Name</div><div class="fht-cell"></div></th><th style="" data-field="salary"><div class="th-inner sortable both asc">Salary</div><div class="fht-cell"></div></th><th style="" data-field="country"><div class="th-inner sortable both">Country</div><div class="fht-cell"></div></th><th style="" data-field="city"><div class="th-inner ">City</div><div class="fht-cell"></div></th><th class="td-actions text-right" style="" data-field="actions"><div class="th-inner ">Actions</div><div class="fht-cell"></div></th></tr></thead>
+	                                    <tbody><tr data-index="0"><td class="bs-checkbox"><input data-index="0" name="btSelectItem" type="checkbox"></td><td class="text-center" style="">2</td><td style="">Minerva Hooper</td><td style="">$23,789</td><td style="">Curaçao</td><td style="">Sinaai-Waas</td><td class="td-actions text-right" style=""><div class="table-icons"><a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)"><i class="ti-image"></i></a><a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)"><i class="ti-pencil-alt"></i></a><a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)"><i class="ti-close"></i></a></div></td></tr><tr data-index="1"><td class="bs-checkbox"><input data-index="1" name="btSelectItem" type="checkbox"></td><td class="text-center" style="">18</td><td style="">Boris Horton</td><td style="">$35,094</td><td style="">Laos</td><td style="">Saint-Mard</td><td class="td-actions text-right" style=""><div class="table-icons"><a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)"><i class="ti-image"></i></a><a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)"><i class="ti-pencil-alt"></i></a><a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)"><i class="ti-close"></i></a></div></td></tr><tr data-index="2"><td class="bs-checkbox"><input data-index="2" name="btSelectItem" type="checkbox"></td><td class="text-center" style="">1</td><td style="">Dakota Rice</td><td style="">$36,738</td><td style="">Niger</td><td style="">Oud-Turnhout</td><td class="td-actions text-right" style=""><div class="table-icons"><a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)"><i class="ti-image"></i></a><a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)"><i class="ti-pencil-alt"></i></a><a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)"><i class="ti-close"></i></a></div></td></tr><tr data-index="3"><td class="bs-checkbox"><input data-index="3" name="btSelectItem" type="checkbox"></td><td class="text-center" style="">4</td><td style="">Philip Chaney</td><td style="">$38,735</td><td style="">Korea, South</td><td style="">Overland Park</td><td class="td-actions text-right" style=""><div class="table-icons"><a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)"><i class="ti-image"></i></a><a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)"><i class="ti-pencil-alt"></i></a><a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)"><i class="ti-close"></i></a></div></td></tr><tr data-index="4"><td class="bs-checkbox"><input data-index="4" name="btSelectItem" type="checkbox"></td><td class="text-center" style="">11</td><td style="">Chaim Saunders</td><td style="">$5,502</td><td style="">Romania</td><td style="">New Quay</td><td class="td-actions text-right" style=""><div class="table-icons"><a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)"><i class="ti-image"></i></a><a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)"><i class="ti-pencil-alt"></i></a><a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)"><i class="ti-close"></i></a></div></td></tr><tr data-index="5"><td class="bs-checkbox"><input data-index="5" name="btSelectItem" type="checkbox"></td><td class="text-center" style="">12</td><td style="">Josiah Simon</td><td style="">$50,265</td><td style="">Christmas Island</td><td style="">Sint-Jans-Molenbeek</td><td class="td-actions text-right" style=""><div class="table-icons"><a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)"><i class="ti-image"></i></a><a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)"><i class="ti-pencil-alt"></i></a><a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)"><i class="ti-close"></i></a></div></td></tr><tr data-index="6"><td class="bs-checkbox"><input data-index="6" name="btSelectItem" type="checkbox"></td><td class="text-center" style="">3</td><td style="">Sage Rodriguez</td><td style="">$56,142</td><td style="">Netherlands</td><td style="">Baileux</td><td class="td-actions text-right" style=""><div class="table-icons"><a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)"><i class="ti-image"></i></a><a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)"><i class="ti-pencil-alt"></i></a><a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)"><i class="ti-close"></i></a></div></td></tr><tr data-index="7"><td class="bs-checkbox"><input data-index="7" name="btSelectItem" type="checkbox"></td><td class="text-center" style="">9</td><td style="">Illana Nelson</td><td style="">$56,142</td><td style="">Heard Island</td><td style="">Montone</td><td class="td-actions text-right" style=""><div class="table-icons"><a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view" href="javascript:void(0)"><i class="ti-image"></i></a><a rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" href="javascript:void(0)"><i class="ti-pencil-alt"></i></a><a rel="tooltip" title="Remove" class="btn btn-simple btn-danger btn-icon table-action remove" href="javascript:void(0)"><i class="ti-close"></i></a></div></td></tr></tbody>
+	                                </table></div><div class="fixed-table-footer" style="display: none;"><table><tbody><tr></tr></tbody></table></div><div class="fixed-table-pagination"><div class="pull-left pagination-detail"><span class="pagination-info"></span><span class="page-list"><span class="btn-group dropup"><button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown"><span class="page-size">8</span> <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li class="active"><a href="javascript:void(0)">8</a></li><li><a href="javascript:void(0)">10</a></li><li><a href="javascript:void(0)">25</a></li></ul></span> rows visible</span></div><div class="pull-right pagination"><ul class="pagination"><li class="page-first disabled"><a href="javascript:void(0)"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li><li class="page-pre disabled"><a href="javascript:void(0)">‹</a></li><li class="page-number active"><a href="javascript:void(0)">1</a></li><li class="page-number"><a href="javascript:void(0)">2</a></li><li class="page-number"><a href="javascript:void(0)">3</a></li><li class="page-next"><a href="javascript:void(0)">›</a></li><li class="page-last"><a href="javascript:void(0)"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li></ul></div></div></div></div><div class="clearfix"></div>
+	                            </div>
+	                        </div><!--  end card  -->
+	                    </div> <!-- end col-md-12 -->
+	                </div>
+                  </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+            demo.initChartsPages();
+        });
+
+        $(document).ready(function () {
+$('#dtBasicExample').DataTable({
+"searching": false // false to disable search (or any other option)
+});
+$('.dataTables_length').addClass('bs-select');
+});
+    </script>
+@endpush
