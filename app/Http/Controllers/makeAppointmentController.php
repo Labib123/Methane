@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use App\Material;
 use App\Schedule;
 use App\CollectorMaterials;
+use App\Submission;
+
 
 use DB  ;
 
@@ -39,10 +41,31 @@ class makeAppointmentController extends Controller
         return view('show-collectors',['material'=>$material, 'collectors'=>$collectors,'schedule'=>$schedule]);
 
     }
-    public function proposedDate()
+    public function proposedDate(Request $request)
 {
     
-    return view('proposed-date');
+    $collectors = User::find($request->id) ; 
+    $schedule = Schedule::all(); 
+    return view('proposed-date',['collectors'=>$collectors,'schedule'=>$schedule]);
+// dd($request->id);
+
+}
+
+public function makeAppoinment(Request $request)
+{
+
+    $submission = new Submission();
+    $submission->proposedDate = $request->proposedDate;
+    $submission->actualDate = 'NOT SET';
+    $submission->weightInKg = 'NOT SET';
+    $submission->pointsAwarded = 'NOT SET';
+    $submission->status = 'Proposed';
+    
+    $submission->recycledBy = auth()->user()->username;
+    $submission->submittedBy = 'NOT SET';
+    $submission->user_id = auth()->user()->id;
+    $submission->save() ;
+    return redirect('home')->with('message', 'Appointment Created!');;
 
 
 }

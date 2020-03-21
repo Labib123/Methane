@@ -28,12 +28,15 @@
         @if($s->user_id == $collector->id)
 
           <tr id='tr' >
-            <td><a href="porposedDate">{{ $collector->fullname }} </a> </td>
+            <td><a href="porposedDate?id={{$collector->id}}">{{ $collector->fullname }} </a> </td>
             <td>{{ $collector->address }}</td>
-            <?php $weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']; 
+            <?php $weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+                    $fWeekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
+
                     foreach($weekdays as $day) {
                         if($s->$day != null){
-                          $day = $day.'day';
+                          $day = $fWeekdays[array_search($day, $weekdays          )];
+
                           echo "<td> $day </td>";
                         }
                     }

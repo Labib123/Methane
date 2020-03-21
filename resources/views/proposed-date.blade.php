@@ -9,31 +9,70 @@
 @section('content')
 
 <div class="content">
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"> Select Date </h4>
+                    </div>
+                    <div class="card-body">
+                    <form
+                            class="form-horizontal"
+                            role="form"
+                            method="POST"
+                            action="{{ route('selectDate') }}"
+                        >
+                        {{ csrf_field() }}
+                        @foreach($schedule as $s)
+                        @if($s->user_id == $collectors->id)
+                        <?php $weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']; 
+                     $collectordays = []; 
+                    foreach($weekdays as $day) {
+                        if($s->$day != null){
+                            array_push($collectordays, $day) ;  
+                        }
+                       
+                    }
+                    $indexes = []; 
+
+                    foreach($collectordays as $cd) {
+                            array_push($indexes, array_search($cd, $weekdays,false)) ;  
+
+                        }
+                    // foreach($indexes as $i) {
+                    //         echo $i ; 
+                    // }
+                        ?>
+
+                          @endif
+                            @endforeach
+                         
+                    <input name="proposedDate" id="datepicker" type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
+                                        <button type="submit" class="btn btn-primary">
+                                        Make Appointment
+                                        </button>
+                                        </form>
+
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
-    </div>
+     
+   
 </div>
 
-<script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
-<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
-<script src="../assets/js/plugins/moment.min.js"></script>
-
-
+<script>
+$(function() {
+    $( "#datepicker" ).datepicker(
+    {
+        beforeShowDay: function(d) {
+            var day = d.getDay();
+         
+            return [day == {{isset($indexes[0]) ? $indexes[0]:'null' }} || day == {{array_key_exists(1,$indexes) ? $indexes[1]:'null' }}   || day == {{array_key_exists("2",$indexes) ? $indexes[2]:'null' }} || day == {{array_key_exists(3,$indexes) ? $indexes[3]:'null' }} || day == {{array_key_exists(4,$indexes) ? $indexes[4]:'null' }} || day == {{array_key_exists(5,$indexes) ? $indexes[5]:'null' }} || day == {{array_key_exists(6,$indexes) ? $indexes[6]:'null' }} || day == {{array_key_exists(7,$indexes) ? $indexes[7]:'null' }}  ];
+        }
+    });
+  });
+  </script>
 @endsection

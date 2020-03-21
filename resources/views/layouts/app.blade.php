@@ -75,6 +75,8 @@ The above copyright notice and this permission notice shall be included in all c
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('paper') }}/demo/demo.css" rel="stylesheet" />
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
     
 </head>
 
@@ -106,6 +108,8 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="{{ asset('paper') }}/demo/demo.js"></script>
     <!-- Sharrre libray -->
     <script src="../assets/demo/jquery.sharrre.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
     
     @stack('scripts')
 

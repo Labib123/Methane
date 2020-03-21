@@ -24,6 +24,9 @@ Auth::routes();
 Route::get('/porposedDate', 'makeAppointmentController@proposedDate');
 Route::get('/makeappointment', 'makeAppointmentController@index');
 Route::get('/selectCollector', 'makeAppointmentController@selectCollector');
+Route::post('/selectDate', 'makeAppointmentController@makeAppoinment')->name('selectDate');
+
+
 
 Route::get('/recycler', 'RecyclerRegistrationController@index')->name('recycler');
 Route::get('/collector', 'CollectorRegistrationController@index')->name('collector');
