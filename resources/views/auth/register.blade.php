@@ -18,7 +18,7 @@ use App\Material;
 
 
 .frame {
-  height: 800px;
+  height: 900px;
   width: 430px;
   background:
     linear-gradient(
@@ -36,7 +36,8 @@ use App\Material;
 }
 
 .frame-long {
-  height: 600px;
+  height: 610px;
+
 
 }
 
@@ -119,7 +120,7 @@ li {
 
 .form-signup {
   width: 430px;
-  height: 375px;
+  height: 175px;
 	font-size: 16px;
 	font-weight: 300;
   padding-left: 37px;
@@ -697,6 +698,13 @@ body section {
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-5 ml-auto" style="margin-right:200px">
+                @if ($errors->any())
+              @foreach ($errors->all() as $error)
+              <div class="alert alert-danger" role="alert">
+              {{ $error }}
+</div>
+              @endforeach
+            @endif 
                     <div class="info-area info-horizontal mt-5">
                         <div class="icon icon-primary">
                             <i class="nc-icon nc-planet"></i>
@@ -741,19 +749,13 @@ body section {
       </ul>
     </div>
     <div ng-app ng-init="checked = false">
-		<form id="recycler-form" class="form-signin" 
+		<form  class="form-signin" 
         method="POST"
         action="{{ route('register') }}"
          name="form">
          {{ csrf_field() }}
 
-         @if ($errors->any())
-            <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
-            </ul>
-            @endif 
+      
             
 
           <label for="username">Username</label>
@@ -762,21 +764,19 @@ body section {
           <label for="fullname">fullname</label>
             <input required id="fullname" class="form-styling" type="text" name="fullname" placeholder=""/>
 
-          @if ($errors->has('fullname'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('fullname') }}</strong>
-                                    </span>
-                                @endif
+      
+
+
+                                
+                <label for="address">Address</label>
+                <input required id="address" class="form-styling" type="address" name="address" placeholder=""/>
+
                                 <label for="email" >E-Mail Address</label>
                                 <input id="email" type="email" class="form-styling" name="email" value="{{ old('email') }}" required>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                             
                                 <label for="password">Password</label>
-                           <input class="form-styling" type="text" name="password" placeholder=""/>
+                           <input class="form-styling" type="password" name="password" placeholder=""/>
        
 
                                 <label for="password-confirm" >Confirm Password</label>
@@ -795,42 +795,20 @@ body section {
                                             {{ __('I agree to the') }}
                                         <a href="#something">{{ __('terms and conditions') }}</a>.
                                     </label>
-                                  <div class="btn-animate">
-                                    <button id="collector-signin-btn" class="btn-signin"> Submit</button>
-                                  </div>
+                                  <button type="submit" class="btn-primary">Register</button>
+
                                   
     		        </form>
         
 				        <form class="form-signup" action="{{ route('login') }}" method="post" name="form">
-
                 {{ csrf_field() }}
-
           <label for="Email">Email</label>
           <input id="email" class="form-styling" type="text" name="email" placeholder=""/>
-
-          @if ($errors->has('username'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('email') }}</strong>
-                </span>
-                @endif
-
                 <label for="password">password</label>
                 <input required id="password" class="form-styling" type="password" name="password" placeholder=""/>
+                  
+                                    <button type="submit" class=" btn-primary">Login</button>
 
-
-          @if ($errors->has('fullname'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('password') }}</strong>
-                </span>
-                @endif
-                <label class="form-check-label">
-                                        <input class="form-check-input" name="remember" type="checkbox" value="" {{ old('remember') ? 'checked' : '' }}>
-                                        <span class="form-check-sign"></span>
-                                        {{ __('Remember me') }}
-                                    </label>
-          <button type="submit" class="btn-signin">
-            <a   class="btn-signin"> Login  </a>
-            </button>
       </form>
   </div>
 

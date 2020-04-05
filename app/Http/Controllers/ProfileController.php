@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use  App\Submission ; 
 
 class ProfileController extends Controller
 {
@@ -18,7 +19,14 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('profile.edit');
+        if(auth()->user()->usertype == 'recycler'){
+        $submissionsNo  = Submission::where('recycledBy',auth()->user()->username)->count() ; 
+    }
+        else {
+        $submissionsNo  = Submission::where('submittedBy',auth()->user()->username)->count() ; 
+            
+        }
+        return view('profile.edit',['submissionsNo'=>$submissionsNo]);
     }
 
     /**

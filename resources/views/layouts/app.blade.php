@@ -45,7 +45,7 @@ The above copyright notice and this permission notice shall be included in all c
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@creativetim">
-    <meta name="twitter:title" content="Paper Dashboard Laravel by Creative Tim">
+    <meta name="twitter:title" content="Methane">
 
     <meta name="twitter:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
     <meta name="twitter:creator" content="@creativetim">
@@ -54,15 +54,16 @@ The above copyright notice and this permission notice shall be included in all c
 
     <!-- Open Graph data -->
     <meta property="fb:app_id" content="655968634437471">
-    <meta property="og:title" content="Paper Dashboard Laravel by Creative Tim" />
+    <meta property="og:title" content="Methane" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://www.creative-tim.com/live/paper-dashboard-laravel" />
     <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/209/opt_pd_laravel_thumbnail.jpg"/>
     <meta property="og:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up." />
     <meta property="og:site_name" content="Creative Tim" />
+    <link  href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
     
     <title>
-        {{ __('Paper Dashboard by Creative Tim') }}
+        {{ __('Methane') }}
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -107,10 +108,13 @@ The above copyright notice and this permission notice shall be included in all c
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('paper') }}/demo/demo.js"></script>
     <!-- Sharrre libray -->
-    <script src="../assets/demo/jquery.sharrre.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-
-    
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script
+  src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"
+  integrity="sha256-0vBSIAi/8FxkNOSKyPEfdGQzFDak1dlqFKBYqBp1yC4="
+  crossorigin="anonymous"></script>
     @stack('scripts')
 
     @include('layouts.navbars.fixed-plugin-js')

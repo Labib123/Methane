@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Material;
+use App\Submission;
+
 use App ;
 class MaterialController extends Controller
 {
@@ -106,8 +108,17 @@ class MaterialController extends Controller
     public function destroy($id)
     {
         //Retrieve the employee
-        $material = Material::destroy($id);
+        $material = Material::find($id);
+        $submission = Submission::where('materialType',$material->name)->first(); 
+        if(isset($submission)){
+        return redirect('/')->with('danger', 'Material has submission! Can"t delete it now ');
+        }
         //delete
-        return redirect()->route('material.index')->with('success', 'Material deleted!');
-    }
+        else{
+        $material = Material::destroy($id);
+
+            return redirect('/')->with('message', 'Material Successfully deleted!');
+
+        }
+}
 }

@@ -1,5 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+    'class' => 'makeappointment',
+    'elementActive' => 'makeappointment'
+])
 @section('content')
+
 <div class="container">
 <div class="row mt-5">
     <div class="col-sm-8 offset-sm-2">

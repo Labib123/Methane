@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use DataTables;
 use Illuminate\Http\Request;
 use App\Submission;
 
@@ -12,26 +13,59 @@ class SubmissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function recycledBy(Request $request )
+    public function submissionAPI(Request $request )
     {
         //Show all submcissions from the database and return to view
-        $submission = Submission::where('recycledBy' , $request->get('id'))->get()  ;
-        return view('show-submission',['submission'=>$submission]);
-    }
-    public function submittedBy(Request $request )
-    {
-        //Show all submcissions from the database and return to view
-        $submission = Submission::where('submittedBy' , $request->get('id'))->get()  ;
-        return view('show-submission',['submission'=>$submission]);
+        // $submission = Submission::where('recycledBy' , $request->get('id'))->get()->make(true)  ;
+        // return view('show-submission',['submission'=>$submission]);
+        // return Datatables::of(Submission::query())->make(true);
+
+        if ($request->ajax()) {
+            $data = Submission::latest()->get();
+            return Datatables::of($data)
+                    ->make(true);
+        }
+
     }
 
-    public function admin(Request $request )
+
+    
+    public function submittedByAPI(Request $request )
     {
-        //Show all submcissions from the database and return to view
-        $submission = Submission::all() ;
-        return view('admin-submission',['submission'=>$submission]);
+        if ($request->ajax()) {
+            $data = Submission::where('submittedBy', $request->get('username'))->get();
+            return Datatables::of($data)->make(true);
+        }
+    }
+    
+
+    public function submittedBy(Request $request ){
+
+        return view('submittedBy');
+
     }
 
+    public function recycledByAPI(Request $request ){
+        if ($request->ajax()) {
+            $data = Submission::where('recycledBy', $request->get('username'))->where('status','submitted')->get();
+            return Datatables::of($data)->make(true);
+        }
+
+    }
+    public function recycledBy(Request $request ){
+       return view('recycledBy');
+    }
+
+
+    public function allSubmissions(Request $request )
+    {
+        //Show all submcissions from the database and return to view
+        return view('show-submission');
+
+    }
+
+    
+   
     /**
      * 
      *
@@ -48,6 +82,9 @@ class SubmissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+    
     public function store(Request $request)
     {
         //Persist the employee in the database

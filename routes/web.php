@@ -16,6 +16,7 @@ Route::get('/', function () {
 })->name('welcome');
 Route::get('/collectorMaterials', 'CollectorMaterialsController@index');
 Route::post('/collectorAddMaterial', 'CollectorMaterialsController@store')->name('collectorAddMaterial');
+Route::get('manually-api', 'makeAppointmentController@manuallyAPI')->name('manually-api');
 
 Route::get('/home','HomeController@index');
 Route::post('/schedule', 'scheduleController@index')->name('schedule');
@@ -27,6 +28,8 @@ Route::get('/selectCollector', 'makeAppointmentController@selectCollector');
 Route::post('/selectDate', 'makeAppointmentController@makeAppoinment')->name('selectDate');
 
 
+
+Route::get('/manually-appointment', 'makeAppointmentController@manually');
 
 Route::get('/recycler', 'RecyclerRegistrationController@index')->name('recycler');
 Route::get('/collector', 'CollectorRegistrationController@index')->name('collector');
@@ -49,6 +52,16 @@ Route::prefix('admin')->group(function() {
 });
 
 Route::get('addSchedule', 'AddScheduleController@index');
+Route::post('recordSubmission/', 'makeAppointmentController@recordSubmission')->name('recordSubmission');
+
+Route::get('showRecyclers', 'makeAppointmentController@showRecyclers');
+Route::get('showRecyclersAPI', 'makeAppointmentController@showRecyclersAPI');
+
+
+Route::get('enterWeight', 'makeAppointmentController@enterWeight')->name('enterWeight');
+Route::get('viewappointments', 'makeAppointmentController@viewappointments');
+
+
 
 Route::get('material/', 'MaterialController@index')->name('material.index');
 Route::get('/create','MaterialController@create')->name('material.create');
@@ -57,9 +70,19 @@ Route::get('material/{id}/edit','MaterialController@edit')->name('material.edit'
 Route::post('material/{id}/delete','MaterialController@destroy')->name('material.destroy');
 Route::post('material/update','MaterialController@update')->name('material.update');
 
-Route::get('recyclerSubmission', 'SubmissionController@recycledBy')->name('submission.index');
+Route::get('submissionAPI', 'SubmissionController@submissionAPI')->name('submission.index');
+Route::get('submittedByAPI', 'SubmissionController@submittedByAPI')->name('submission.index');
+Route::get('submittedBy', 'SubmissionController@submittedBy');
+
+Route::get('recycledByAPI', 'SubmissionController@recycledByAPI');
+Route::get('recycledBy', 'SubmissionController@recycledBy');
+
+
+Route::get('allSubmissions', 'SubmissionController@allSubmissions');
+
 Route::get('collectorSubmission', 'SubmissionController@recycledBy')->name('submission.index');
 Route::get('adminSubmission', 'SubmissionController@admin')->name('submission.index');
+Route::get('submission','makeAppointmentController@submission');
 
 Route::get('viewsubmission','SubmissionController@show')->name('submission.create');
 Route::get('submission/create','SubmissionController@create')->name('submission.create');

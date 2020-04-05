@@ -14,9 +14,7 @@
                     @if($errors->any())
                     <div class="alert alert-danger"> This Material Type Already Added! </div>
 @endif
-@foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
+
                         <h4 class="card-title"> Choose Your Material </h4>
                     <div class="card-body">
                         <div class="table-responsive">

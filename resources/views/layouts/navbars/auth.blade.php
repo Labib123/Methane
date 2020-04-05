@@ -10,8 +10,10 @@
         </a>
         <a href="http://127.0.0.1:8000/" class="simple-text logo-normal">
         Methane
-        </a>
+      
     </div>
+        </a>
+        
     <div class="sidebar-wrapper">
         <ul class="nav">
 
@@ -25,14 +27,21 @@
         $user =  auth()->user();           
 ?>
 
+<li class="{{ $elementActive == 'profile' ? 'active' : '' }}">
+                <a href="{{ route('profile.edit') }}">
+                    <i class="nc-icon nc-bank"></i>
+                    <p>{{ __(' My Profile ') }}</p>
+                </a>
+            </li>
+         
                 @if($user->usertype == "collector")
-                    <li class="{{ $elementActive == 'dashboard' ? 'active' : '' }}">
-                    <a href='collectorSubmission?id={{$user->id}}'>  view submission 
+                    <li class="{{ $elementActive == 'viewsubmission' ? 'active' : '' }}">
+                    <a href='submittedBy'>  view submission 
                     <i class="nc-icon nc-zoom-split"></i>
                     </a>
             </li>
             <li class="{{ $elementActive == 'recordsubmission' ? 'active' : '' }}">
-            <a href='c'> record submission 
+            <a href='showRecyclers'> record submission 
                     <i class="nc-icon nc-check-2"></i>
                     </a>
             </li>
@@ -51,8 +60,13 @@
                     <i class="nc-icon nc-calendar-60"></i>
                     </a>
             </li>
+            <li class="{{ $elementActive == 'viewappointments' ? 'active' : '' }}">
+                    <a href='viewappointments'>  view appoitments    
+                    <i class="nc-icon nc-calendar-60"></i>
+                    </a>
+            </li>
             <li class="{{ $elementActive == 'recyclerSubmission' ? 'active' : '' }}">
-            <a href='recyclerSubmission?id={{$user->id}}'> view submission 
+            <a href='recycledBy'> view submission 
                     <i class="nc-icon nc-zoom-split"></i>
                     </a>
             </li>
@@ -64,7 +78,7 @@
                 @if(!isset($user->usertype))
 
                 <li class="{{ $elementActive == 'viewsubmission' ? 'active' : '' }}">
-            <a href='recyclerSubmission?id={{$user->id}}'> view submission 
+            <a href='allSubmissions'> view submission 
                     <i class="nc-icon nc-zoom-split"></i>
                     </a>
             </li>
@@ -84,7 +98,8 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'user' || $elementActive == 'profile' ? 'active' : '' }}">
+
+                      <!-- <li class="{{ $elementActive == 'user' || $elementActive == 'profile' ? 'active' : '' }}">
                 <a data-toggle="collapse" aria-expanded="true" href="#laravelExamples">
                     <i class="nc-icon"><img src="{{ asset('paper/img/laravel.svg') }}"></i>
                     <p>
@@ -138,8 +153,10 @@
                     <i class="nc-icon nc-caps-small"></i>
                     <p>{{ __('Typography') }}</p>
                 </a>
-            </li>
-           
+            </li> -->
+
+          
         </ul>
+        
     </div>
 </div>

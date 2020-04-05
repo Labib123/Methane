@@ -11,6 +11,7 @@
       {{ session()->get('success') }}  
     </div>
   @endif
+  
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -27,6 +28,8 @@
           <th>Name</th>
           <th>Description</th>
           <th>Points Per Kg</th>
+          <th colspan="2">Action</th>
+
 
         </tr>
         @foreach($material as $m)
@@ -35,7 +38,6 @@
             <td>{{ $m->name }}</td>
             <td>{{ $m->description }}</td>
             <td>{{ $m->pointsPerKg }}</td>
-            <td>{{ $m->phone }}</td>
             <td><a href="{{route('material.edit',['id'=>$m->id])}}" class = "btn btn-info">Edit</a></td>
             <td>
     

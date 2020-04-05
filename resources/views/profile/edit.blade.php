@@ -40,12 +40,7 @@
                         <hr>
                         <div class="button-container">
                             <div class="row">
-                                <div class="col-lg-3 col-md-6 col-6 ml-auto">
-                                    <h5>{{ __('12') }}
-                                        <br>
-                                        <small>{{ __('Files') }}</small>
-                                    </h5>
-                                </div>
+                               
                                 <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
                                     <h5>{{ auth()->user()->totalpoints }}
                                         <br>
@@ -53,7 +48,7 @@
                                     </h5>
                                 </div>
                                 <div class="col-lg-3 mr-auto">
-                                    <h5>{{ __(0) }}
+                                    <h5>{{$submissionsNo }}
                                         <br>
                                         <small>{{ __('Submission') }}</small>
                                     </h5>
@@ -64,7 +59,14 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">{{ __('Team Members') }}</h4>
+                    <?php
+                     $workWith = "Recyclers";
+                    if(auth()->user()->usertype == "recycler" ){
+                        $workWith = "Collectors";
+                    }
+                    ?>
+                        <h4 class="card-title">{{$workWith}} You worked with:</h4>
+
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled team-members">
@@ -77,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                        {{ __('DJ Khaled') }}
+                                        {{ __('Doston Salimove ') }}
                                         <br />
                                         <span class="text-muted">
                                             <small>{{ __('Offline') }}</small>
@@ -98,7 +100,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                            {{ __('Creative Tim') }}
+                                            {{ __('Serena ') }}
                                         <br />
                                         <span class="text-success">
                                             <small>{{ __('Available') }}</small>
@@ -119,7 +121,7 @@
                                         </div>
                                     </div>
                                     <div class="col-ms-7 col-7">
-                                        {{ __('Flume') }}
+                                        {{ __('Kenta suzuki') }}
                                         <br />
                                         <span class="text-danger">
                                             <small>{{ __('Busy') }}</small>

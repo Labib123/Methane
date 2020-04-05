@@ -29,7 +29,7 @@ class scheduleController extends Controller
 
         $user->schedule = $schedule->id;
         $user->save() ;
-        return redirect()->route('welcome')->with('info','Materia Added Successfully');
+        return redirect()->route('welcome')->with('message','Schedule Added Successfully');
 
         ; 
         // dd($data->all()); // This will dump and die

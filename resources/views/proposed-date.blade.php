@@ -3,9 +3,6 @@
     'elementActive' => 'makeappointment'
 ])
 
-
-
-
 @section('content')
 
 <div class="content">
@@ -47,7 +44,10 @@
                           @endif
                             @endforeach
                          
-                    <input name="proposedDate" id="datepicker" type='text' class="form-control" />
+                    <input placeholder="mm/dd/yyyy" autocomplete="off" name="proposedDate" id="datepicker" type='text' class="form-control" />
+                    <input name="toBeCollector" type ="hidden" value="{{$collectors->id}}">
+                    <input name="materialType" type ="hidden" value="{{$materialType}}">
+
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -55,6 +55,33 @@
                                         Make Appointment
                                         </button>
                                         </form>
+
+                                        <div class="card-body">
+                        <div class="table-responsive">
+                            <table  class="table table table-striped table-bordered table-sm">
+                                <thead class=" text-primary">    Your upcoming appointments   <tr >
+                            <th>Proposed Date</th>
+                            <th>Material Type</th>
+                            <th >Collector </th>
+                            </thead>
+                            <tbody>
+                            @foreach($submissions as $s) 
+
+                            <tr> 
+                            <td>{{$s->proposedDate}}</td>
+                            <td>{{$s->materialType}}</td>
+                            <?php foreach($users as $u ){
+                                if($s->user_id == $u->id){
+                                    echo "<td>$u->fullname</td>" ; 
+                            
+
+                                }
+                            } ?>
+                            </tr> 
+                            @endforeach 
+                            </tbody>
+                            </table> 
+                            </div>
 
                 </div>
             </div>

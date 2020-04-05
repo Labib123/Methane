@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title"> Show Submissions</h4>
+                        <h4 class="card-title"> View Submission</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -34,7 +34,7 @@
                $('#table').DataTable({
                processing: true,
                serverSide: true,
-               ajax: '{{url("/submissionAPI")}}',
+               ajax: '/submittedByAPI?username={{auth()->user()->username}}',
                columns: [
                         { data: 'proposedDate', name: 'proposedDate' },
                         { data: 'actualDate', name: 'actualDate' },

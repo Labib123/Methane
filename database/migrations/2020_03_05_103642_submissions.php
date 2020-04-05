@@ -23,6 +23,7 @@ class Submissions extends Migration
             $table->string('status');
             $table->string('recycledBy');
             $table->string('submittedBy');
+            $table->string('materialType');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
