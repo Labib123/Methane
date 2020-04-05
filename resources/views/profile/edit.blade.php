@@ -40,7 +40,16 @@
                         <hr>
                         <div class="button-container">
                             <div class="row">
+<<<<<<< HEAD
                                
+=======
+                                <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                                    <h5>{{ __('12') }}
+                                        <br>
+                                        <small>{{ __('Files') }}</small>
+                                    </h5>
+                                </div>
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                                 <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
                                     <h5>{{ auth()->user()->totalpoints }}
                                         <br>
@@ -48,7 +57,11 @@
                                     </h5>
                                 </div>
                                 <div class="col-lg-3 mr-auto">
+<<<<<<< HEAD
                                     <h5>{{$submissionsNo }}
+=======
+                                    <h5>{{ __(0) }}
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                                         <br>
                                         <small>{{ __('Submission') }}</small>
                                     </h5>
@@ -59,6 +72,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
+<<<<<<< HEAD
                     <?php
                      $workWith = "Recyclers";
                     if(auth()->user()->usertype == "recycler" ){
@@ -67,6 +81,9 @@
                     ?>
                         <h4 class="card-title">{{$workWith}} You worked with:</h4>
 
+=======
+                        <h4 class="card-title">{{ __('Team Members') }}</h4>
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled team-members">
@@ -79,7 +96,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-7">
+<<<<<<< HEAD
                                         {{ __('Doston Salimove ') }}
+=======
+                                        {{ __('DJ Khaled') }}
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                                         <br />
                                         <span class="text-muted">
                                             <small>{{ __('Offline') }}</small>
@@ -100,7 +121,11 @@
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-7">
+<<<<<<< HEAD
                                             {{ __('Serena ') }}
+=======
+                                            {{ __('Creative Tim') }}
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                                         <br />
                                         <span class="text-success">
                                             <small>{{ __('Available') }}</small>
@@ -121,7 +146,11 @@
                                         </div>
                                     </div>
                                     <div class="col-ms-7 col-7">
+<<<<<<< HEAD
                                         {{ __('Kenta suzuki') }}
+=======
+                                        {{ __('Flume') }}
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                                         <br />
                                         <span class="text-danger">
                                             <small>{{ __('Busy') }}</small>

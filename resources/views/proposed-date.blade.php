@@ -3,6 +3,12 @@
     'elementActive' => 'makeappointment'
 ])
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
 @section('content')
 
 <div class="content">
@@ -44,7 +50,11 @@
                           @endif
                             @endforeach
                          
+<<<<<<< HEAD
                     <input placeholder="mm/dd/yyyy" autocomplete="off" name="proposedDate" id="datepicker" type='text' class="form-control" />
+=======
+                    <input placeholder="mm/dd/yyyy" name="proposedDate" id="datepicker" type='text' class="form-control" />
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                     <input name="toBeCollector" type ="hidden" value="{{$collectors->id}}">
                     <input name="materialType" type ="hidden" value="{{$materialType}}">
 

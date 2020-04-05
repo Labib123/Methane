@@ -59,9 +59,12 @@ Route::get('showRecyclersAPI', 'makeAppointmentController@showRecyclersAPI');
 
 
 Route::get('enterWeight', 'makeAppointmentController@enterWeight')->name('enterWeight');
+<<<<<<< HEAD
 Route::get('viewappointments', 'makeAppointmentController@viewappointments');
 
 
+=======
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
 
 Route::get('material/', 'MaterialController@index')->name('material.index');
 Route::get('/create','MaterialController@create')->name('material.create');
@@ -91,14 +94,22 @@ Auth::routes();
 
 
 
+<<<<<<< HEAD
 Route::group(['middleware' =>'auth'], function () {
+=======
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::post('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::post('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+<<<<<<< HEAD
 });
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'PageController@index']);
 });
+=======
+
+	Route::get('{page}', ['as' => 'page.index', 'uses' => 'PageController@index']);
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
 

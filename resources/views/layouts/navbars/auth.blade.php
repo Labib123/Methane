@@ -60,11 +60,14 @@
                     <i class="nc-icon nc-calendar-60"></i>
                     </a>
             </li>
+<<<<<<< HEAD
             <li class="{{ $elementActive == 'viewappointments' ? 'active' : '' }}">
                     <a href='viewappointments'>  view appoitments    
                     <i class="nc-icon nc-calendar-60"></i>
                     </a>
             </li>
+=======
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
             <li class="{{ $elementActive == 'recyclerSubmission' ? 'active' : '' }}">
             <a href='recycledBy'> view submission 
                     <i class="nc-icon nc-zoom-split"></i>

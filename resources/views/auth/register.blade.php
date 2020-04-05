@@ -698,6 +698,7 @@ body section {
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-5 ml-auto" style="margin-right:200px">
+<<<<<<< HEAD
                 @if ($errors->any())
               @foreach ($errors->all() as $error)
               <div class="alert alert-danger" role="alert">
@@ -705,6 +706,8 @@ body section {
 </div>
               @endforeach
             @endif 
+=======
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                     <div class="info-area info-horizontal mt-5">
                         <div class="icon icon-primary">
                             <i class="nc-icon nc-planet"></i>
@@ -755,7 +758,17 @@ body section {
          name="form">
          {{ csrf_field() }}
 
+<<<<<<< HEAD
       
+=======
+         @if ($errors->any())
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+            @endif 
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
             
 
           <label for="username">Username</label>
@@ -764,7 +777,15 @@ body section {
           <label for="fullname">fullname</label>
             <input required id="fullname" class="form-styling" type="text" name="fullname" placeholder=""/>
 
+<<<<<<< HEAD
       
+=======
+          @if ($errors->has('fullname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fullname') }}</strong>
+                                    </span>
+                                @endif
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
 
 
                                 
@@ -774,7 +795,15 @@ body section {
                                 <label for="email" >E-Mail Address</label>
                                 <input id="email" type="email" class="form-styling" name="email" value="{{ old('email') }}" required>
 
+<<<<<<< HEAD
                              
+=======
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
                                 <label for="password">Password</label>
                            <input class="form-styling" type="password" name="password" placeholder=""/>
        

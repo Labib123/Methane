@@ -41,6 +41,7 @@ class makeAppointmentController extends Controller
 
         return view('show-collectors',['schedule'=>$schedule,'submission'=>$submission,'material'=>$material,'collectors'=>$collectors]);
     }
+<<<<<<< HEAD
     
 
 
@@ -53,6 +54,9 @@ class makeAppointmentController extends Controller
 
         return view('viewappointments',['submissions'=>$submissions,'users'=>$users]);
     }
+=======
+
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
 
     public function index()
     {
@@ -184,8 +188,13 @@ public function makeAppoinment(Request $request)
          $record->actualDate = $mytime->toDateString();
          $record->weightInKg = $request->weight;
          $record->submittedBy = auth()->user()->username;
+<<<<<<< HEAD
          $record->materialType =   $request->materialType; 
          $record->pointsAwarded = $materialType->pointsPerKg * $request->weight ; 
+=======
+         $record->pointsAwarded = $materialType->pointsPerKg * $request->weight ; 
+         $record->materialType =   $request->materialType; 
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
         $record->status = "submitted";
         // dd($record->pointsAwarded );
         
@@ -194,7 +203,11 @@ public function makeAppoinment(Request $request)
 
         $collector->totalpoints = $collector->totalpoints+ $record->pointsAwarded ; 
         $recycler->totalpoints = $recycler->totalpoints+ $record->pointsAwarded ; 
+<<<<<<< HEAD
         dd($collector->totalpoints);
+=======
+        
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
         $collector->save() ; 
         $recycler->save() ; 
 

@@ -47,5 +47,10 @@
                      ]
             });
          });
+<<<<<<< HEAD
+=======
+
+// to be uploaded
+>>>>>>> e305c46bcdc686c5205023d72c7e0f1699beedc8
          </script>
 @endsection
